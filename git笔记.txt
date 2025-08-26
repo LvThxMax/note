@@ -1,3 +1,14 @@
+浏览器可以访问github.com。但git clone git@github.com:abc/abc.git失败如何处理？
+1、测试ssh连接是否被防火墙阻挡，ssh使用22端口，很多公司网络、校园网或运营商可能会封锁这个端口。首先测试端口连通性：ssh -T -p 22 git@github.com，如果timeout，则进行第二步
+2、github官方推荐的解决方案。它通过让ssh连接走443端口（即https的端口）来绕过对22端口的封锁。443端口几乎总是开放的
+操作方法：编辑ssh客户端配置文件~/.ssh/config（如果文件不存在，就新建一个），文件添加以下内容
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/id_rsa # 指向你的私钥文件
+保存文件后，再次测试连接：ssh -T git@github.com
+
 集中式版本控制系统
 CVS SVN（必须联网才能干活）
 分布式版本控制系统
