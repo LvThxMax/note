@@ -45,6 +45,7 @@ type Obj = {[key in Keys]: boolean}; // { a: boolean; b: boolean; c: boolean; }
 type IsTrue<T extends boolean> = T extends true ? 'yes' : 'no';
 
 工具泛型
+NonNullable // 该类型不可为空，type NonNullable<T> = T extends null | undefined ? never : T
 Partial // 将类型的所有属性变为可选，type Partial<T> = {[P in keyof T]?: T[P]}
 Required // 将类型的所有属性变为必选项，type Required<T> = {[P in keyof T]-?: T[P]}
 Readonly // 将类型的所有属性变为只读选项，type Readonly<T> = {readonly [P in keyof T]: T[P]}
@@ -56,15 +57,14 @@ Pick // 从类型T中取出一些属性，type Pick<T, K extends keyof T> = {[P 
 Omit // 将类型T中的一些属性隐藏，type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 Exclude // 将某个类型中属于另一个类型的属性剔除掉，type Exclude<T, U> = T extends U ? never : T，常用于联合类型
 Extract // 将两个类型中共同的属性提取出来，type Extract<T, U> = T extends U ? T : never，常用于联合类型
-NonNullable // 该类型不可为空，type NonNullable<T> = T extends null | undefined ? never : T
-ReturnType // 用于获取函数返回值类型，type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
-  const add = (x:number, y:number) => x + y; 
-  type t = ReturnType<typeof add>;  // type t = number
 Parameters // 用于获取函数的参数类型，type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
   function a(a: number, b: string): string {
       return 'abc'
   }
   const b: Parameters<typeof a> = [1, '2'] // 类型：[a: number, b: string]
+ReturnType // 用于获取函数返回值类型，type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+  const add = (x:number, y:number) => x + y; 
+  type t = ReturnType<typeof add>;  // type t = number
 InstanceType // 用于获取构造函数的实例类型，type InstanceType<T extends new (...args: any) => any> = T extends new (...args: any) => infer R ? R : any;
   class C {
     x = 0;
