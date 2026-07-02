@@ -1,5 +1,9 @@
 package.json需配置types或typings字段
 
+typescript的类型系统中，extends不是面向对象编程中的“继承”含义，而是表示类型约束或条件判断
+1、作为类型约束（泛型约束）：T extends { length: number }
+2、作为条件类型（三元判断）：T extends (infer U)[] ? U : T
+
 typeof关键字  // 用于获取一个变量、对象、函数的类型，注意：在typescript的类型系统中typeof ClassName得到的是构造函数类型，typeof instanceName得到才是实例类型。实例类型可以使用new初始化，构造函数类型不可以使用new初始化
 keyof关键字  // 用于获取某种类型的所有键，其返回类型是联合类型。keyof后面只能跟类型、字面量，不可以跟变量名
 infer关键字  // 用于类型不确定、需要让ts编译器自己推断类型的情况，做到类型“模式匹配”。infer R就是声明了一个类型变量R，infer只能用于extends语句中
@@ -16,6 +20,8 @@ const断言  // ts 3.4引入的一种新的断言，const assertions，使用了
   type X = typeof x;  // type X = "hello"
   const y = { text: "hello" } as const;
   type Y = typeof y; // type Y = {text: string} 
+satisfies关键字  // ts 4.9新增，传统的type注解会“覆盖”掉具体的类型信息，导致只能访问注解类型上的属性和方法。satisfies则不同，它在确保值符合类型结构的同时，保留了该值原始、精确的类型用于上下文推断
+核心区别：satisfies编译期会校验类型，as编译期会强制断言类型
 
 interface和type
 当你需要定义对象数据结构或利用继承、声明合并等特性时，使用interface
