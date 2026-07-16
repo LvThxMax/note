@@ -81,14 +81,17 @@ show create table table_name;  // 信息更详细
 向表中插入数据
 insert [into] table_name (field_1, field_2, ...) values (value_1, value_2, ...);
 
+sql执行顺序
+FROM    →    WHERE    →    GROUP BY    →   聚合计算    →    HAVING    →    SELECT    →    ORDER BY    →    LIMIT
+
 查询表中的数据
-select field_1, field_2, ... from table_name where [condition];
+select field_1, field_2, ... from table_name where [condition];  // 当进行分组查询时，select可获取的字段和having可使用的字段一致，即列或表达式在group by中存在或是一个聚合函数
 condition
 1、=, >, <, >=, <=, !=, <>
 2、is [not], [not] null, [not] in, [not] like...  // 使用like时，_: 任意单个字符，%: 任意多个字符，单引号需要进行转义\'
 3、or, and
-group by  // 必须在查询结果中包含一个聚集函数
-having
+group by 
+having // having要求条件中的列或表达式在group by中存在，或者是一个聚合函数（如sum、count、avg等）
 order by field_name desc  // 默认asc
 limit 1  // limit 0, 1 <=> limit 1 offset 0
 offset 0
