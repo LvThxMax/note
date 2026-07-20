@@ -216,7 +216,7 @@ default()
 追加列
 alter table table_name add [column] field_name_1 value_type [after {field_name_2 | first}];
 修改列
-alter table table_name modify new_value_type ...;  // 支持对字段属性进行修改，不能修改字段名，所有原有属性也需写上
+alter table table_name modify field_name new_value_type ...;  // 支持对字段属性进行修改，不能修改字段名，所有原有属性也需写上
 alter table table_name change old_field_name new_field_name new_value_type ...;  // 支持对字段名修改
 删除列
 alter table table_name drop field_name;
