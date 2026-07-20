@@ -46,11 +46,11 @@ create database database_name [options];
 show tables;
 
 列的属性和约束
-primary key | unique key | foreign key | key  // primary key，unique key会自动添加索引
+primary key | unique key | foreign key | key  // primary key，unique key, foreign key, 会自动添加索引。key本质上就是index
 auto_increment
 null | not null
 default value
-reference  // 外键约束，尽量不要使用，影响性能、更改、维护，但建立索引很必要
+references  // 外键约束，尽量不要使用，影响性能、更改、维护，但建立索引很必要
 comment
 
 创建表
