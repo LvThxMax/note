@@ -267,7 +267,7 @@ mysql -D database_name -h host_name -u username -p < a.sql
 用户管理  // mysql.user表
 flush privileges  // 刷新权限
 增加用户
-carete user username [identified by [password] 'password'];
+create user username [identified by [password] 'password'];
 重命名用户
 rename user old_username to new_username;
 删除用户
