@@ -1,18 +1,18 @@
 ubuntu基本目录结构：
-目录	  全称	                  中文含义 	    用途
-/	     Root	                  根目录	       整个文件系统的最顶层
-/home	 Home	                  家目录	       普通用户个人文件夹（如 /home/ubuntu）
-/root	 Root                   Home	        根用户家目录	超级管理员 root 的个人文件夹
-/usr	 Unix System Resources  Unix系统资源   系统自带的应用程序和库
-/etc	 Et Cetera	            以及其他	     系统配置文件
-/var	 Variable	              变量	         经常变化的数据（日志、缓存、数据库文件）
-/tmp	 Temporary	            临时	         临时文件（重启后可能被清空）
-/bin	 Binary	                二进制	       系统启动和修复所需的基础命令
-/sbin	 System Binary	        系统二进制	    系统管理员专用的管理命令
-/opt	 Optional	              可选	         第三方大型软件（如 Oracle、Google Chrome）
-/dev	 Device	                设备	         硬件设备文件（如磁盘、键盘）
-/proc	 Process	              进程	         虚拟文件系统，存放运行中的进程信息
-/boot	 Boot	                  启动	         系统启动所需的引导文件（内核、grub）
+目录    全称                   中文含义           用途
+/      Root                   根目录            整个文件系统的最顶层
+/home  Home                   家目录            普通用户个人文件夹（如 /home/ubuntu）
+/root  Root                   Home             根用户家目录	超级管理员 root 的个人文件夹
+/usr   Unix System Resources  Unix系统资源      系统自带的应用程序和库
+/etc   Et Cetera              以及其他（拉丁语）  系统配置文件
+/var   Variable               变量              经常变化的数据（日志、缓存、数据库文件）
+/tmp   Temporary	            临时              临时文件（重启后可能被清空）
+/bin   Binary                 二进制            系统启动和修复所需的基础命令
+/sbin  System Binary          系统二进制         系统管理员专用的管理命令
+/opt   Optional               可选              第三方大型软件（如 Oracle、Google Chrome）
+/dev   Device                 设备              硬件设备文件（如磁盘、键盘）
+/proc  Process                进程              虚拟文件系统，存放运行中的进程信息
+/boot  Boot                   启动              系统启动所需的引导文件（内核、grub）
 
 /usr/X11R6: 存放X window的目录
 /usr/bin: 众多的应用程序
